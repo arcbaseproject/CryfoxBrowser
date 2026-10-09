@@ -1,0 +1,297 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Adapted from Zen Browser's zen-welcome.css (MPL 2.0). */
+
+/* The welcome screen has its own look, not the design-system one. */
+/* stylelint-disable stylelint-plugin-mozilla/use-design-tokens */
+
+#cryfox-welcome {
+  --cryfox-welcome-accent: light-dark(#7542e5, #a68cff);
+  --cryfox-welcome-sidebar-bg: light-dark(#ffffff, #1c1c1e);
+  --cryfox-welcome-content-bg: light-dark(#f6f6f8f5, #2b2b30ed);
+  --cryfox-welcome-surface-bg: light-dark(#ffffff, #1c1c1e);
+  --cryfox-welcome-border: light-dark(rgba(0, 0, 0, 0.14), rgba(255, 255, 255, 0.16));
+  --cryfox-welcome-text-secondary: light-dark(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.6));
+
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color-scheme: light dark;
+  font: message-box;
+  background: linear-gradient(120deg, #1d0b3a, #5b2a86, #c2416b, #f08a4b, #1d0b3a);
+  background-size: 400% 400%;
+  animation: cryfox-welcome-gradient 18s ease infinite;
+  -moz-window-dragging: drag;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cryfox-welcome {
+    animation: none;
+  }
+}
+
+@keyframes cryfox-welcome-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#cryfox-welcome-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: white;
+}
+
+#cryfox-welcome-title {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+
+  & > span {
+    display: block;
+  }
+
+  .cryfox-welcome-char {
+    display: inline-block;
+  }
+}
+
+.cryfox-welcome-button {
+  appearance: none;
+  min-width: 140px;
+  padding: 0.9em 1.6em;
+  border: 1px solid var(--cryfox-welcome-border);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: inherit;
+  background: var(--cryfox-welcome-surface-bg);
+  cursor: pointer;
+  transition: scale 0.15s ease-out;
+
+  &.primary {
+    border-color: transparent;
+    color: white;
+    background: var(--cryfox-welcome-accent);
+  }
+
+  &:hover {
+    scale: 1.03;
+    filter: brightness(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--cryfox-welcome-accent);
+    outline-offset: 2px;
+  }
+}
+
+#cryfox-welcome-skip,
+#cryfox-welcome-back {
+  appearance: none;
+  padding: 0;
+  border: none;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  background: none;
+  cursor: pointer;
+}
+
+#cryfox-welcome-skip {
+  color: rgba(255, 255, 255, 0.75);
+
+  &:hover {
+    color: white;
+  }
+}
+
+#cryfox-welcome-pages {
+  display: none;
+  position: relative;
+  width: 86%;
+  height: 82%;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  color: light-dark(#111111, #ffffff);
+  background: var(--cryfox-welcome-content-bg);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  -moz-window-dragging: no-drag;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+#cryfox-welcome-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 38%;
+  padding: 4rem 3.8rem 3.6rem;
+  box-sizing: border-box;
+  background: var(--cryfox-welcome-sidebar-bg);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+}
+
+#cryfox-welcome-back {
+  align-self: flex-start;
+  margin-bottom: 2.2rem;
+  color: var(--cryfox-welcome-accent);
+
+  &::before {
+    content: "\2190\00a0";
+  }
+
+  &[disabled] {
+    visibility: hidden;
+  }
+}
+
+#cryfox-welcome-sidebar-content {
+  flex: 1;
+  position: relative;
+}
+
+.cryfox-welcome-text {
+  position: absolute;
+  inset: 0;
+
+  & h1 {
+    margin: 0 0 2.4rem;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  & p {
+    margin: 0 0 1.2rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--cryfox-welcome-text-secondary);
+  }
+}
+
+#cryfox-welcome-sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+#cryfox-welcome-page-content {
+  flex: 1;
+  position: relative;
+}
+
+.cryfox-welcome-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 4rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  &[page="search"] {
+    mask-image: linear-gradient(transparent, black 3rem, black calc(100% - 3rem), transparent);
+  }
+}
+
+.cryfox-welcome-option {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.5rem 1.9rem;
+  box-sizing: border-box;
+  border: 1px solid var(--cryfox-welcome-border);
+  border-radius: 20px;
+  font-size: 1.3rem;
+  background: var(--cryfox-welcome-surface-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: scale 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    scale: 1.03;
+  }
+
+  & input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  &:has(:focus-visible) {
+    outline: 2px solid var(--cryfox-welcome-accent);
+    outline-offset: 2px;
+  }
+
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  &:has(:checked) {
+    scale: 1.03;
+    border-color: var(--cryfox-welcome-accent);
+    color: var(--cryfox-welcome-accent);
+
+    .cryfox-welcome-option-radio::after {
+      opacity: 1;
+    }
+  }
+}
+
+.cryfox-welcome-option-radio {
+  position: relative;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+  }
+}
+
+.cryfox-welcome-swatch {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--cryfox-welcome-border);
+  border-radius: 8px;
+}
+
+.cryfox-welcome-engine-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}

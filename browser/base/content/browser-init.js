@@ -337,6 +337,15 @@ var gBrowserInit = {
     ) {
       // adjust browser UI for popups
       gURLBar.readOnly = true;
+    } else if (
+      !Services.prefs.getBoolPref("cryfox.welcome.seen", false) &&
+      !PrivateBrowsingUtils.isWindowPrivate(window)
+    ) {
+      Services.prefs.setBoolPref("cryfox.welcome.seen", true);
+      Services.scriptloader.loadSubScript(
+        "chrome://browser/content/cryfox-welcome.js",
+        window
+      );
     }
 
     BrowserUtils.callModulesFromCategory(
