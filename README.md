@@ -33,6 +33,25 @@ The build options are in `mozconfig`. To build and run CryFox:
 For more about the build system, see the
 [Firefox Source Docs](https://firefox-source-docs.mozilla.org/).
 
+### Updating to a new Firefox release
+
+CryFox follows Firefox's stable releases. The repository is one commit with
+the source of a Firefox release, and a small stack of commits on top, each
+with a subject starting with `CryFox:`. Keep that prefix on every CryFox
+commit.
+
+When Mozilla publishes a new release, move the stack onto it and rebuild:
+
+```
+cryfox/update-firefox.sh
+./mach build
+```
+
+The script picks the newest `FIREFOX_*_RELEASE` tag, or takes one as an
+argument, and saves the previous state as a branch first. If a change
+conflicts, it explains how to finish. Recolored Kit mascot images that changed
+upstream can be regenerated with `cryfox/recolor-kit.py` (requires Pillow).
+
 ### License
 
 CryFox is distributed under the terms of the
