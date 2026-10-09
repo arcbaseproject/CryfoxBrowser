@@ -843,7 +843,7 @@ SettingGroupManager.registerGroups({
   }),
   accountDisabled: {
     inProgress: true,
-    hidden: accountsEnabled,
+    hidden: true,
     items: [
       {
         id: "fxaAccountDisabled",
