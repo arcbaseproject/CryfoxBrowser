@@ -411,72 +411,14 @@ export class WallpaperFeed {
       this.broadcastAppliedWallpaper();
     }
 
-    // retrieving all records in collection
-    let records;
-    try {
-      records = await this.wallpaperClient.get();
-    } catch (error) {
-      // Fall through so the custom-wallpaper upload entry is still surfaced.
-      console.error(
-        "Error fetching wallpaper records from remote settings",
-        error
-      );
-      records = [];
-    }
-
     const customWallpaperEnabled = Services.prefs.getBoolPref(
       PREF_WALLPAPERS_CUSTOM_WALLPAPER_ENABLED
     );
 
-    let baseAttachmentURL = "";
-    if (records.length) {
-      try {
-        baseAttachmentURL = await lazy.Utils.baseAttachmentsURL();
-      } catch (error) {
-        // Same as a failed record fetch: carry on so the categories and the
-        // saved images below still reach the page.
-        console.error("Error fetching the wallpaper attachments URL", error);
-      }
-    }
+    // CryFox ships no built-in wallpapers, only user uploads.
+    const wallpapers = [];
 
-    const wallpapers = [
-      ...records.map(record => {
-        return {
-          ...record,
-          ...(record.attachment
-            ? {
-                wallpaperUrl: `${baseAttachmentURL}${record.attachment.location}`,
-              }
-            : {}),
-          background_position: record.background_position || "center",
-          category: record.category || "",
-          order: record.order || 0,
-          thumbnail: record.thumbnail || null,
-        };
-      }),
-    ];
-
-    const CATEGORY_ORDER = [
-      "custom-wallpaper",
-      "firefox",
-      "abstracts",
-      "celestial",
-      "photographs",
-      "solid-colors",
-    ];
-
-    const categories = [
-      ...new Set(
-        wallpapers.map(wallpaper => wallpaper.category).filter(Boolean)
-      ),
-      ...(customWallpaperEnabled ? ["custom-wallpaper"] : []), // Conditionally add custom wallpaper input
-    ].sort((a, b) => {
-      const aIndex = CATEGORY_ORDER.indexOf(a);
-      const bIndex = CATEGORY_ORDER.indexOf(b);
-      const aOrder = aIndex === -1 ? CATEGORY_ORDER.length : aIndex;
-      const bOrder = bIndex === -1 ? CATEGORY_ORDER.length : bIndex;
-      return aOrder - bOrder;
-    });
+    const categories = customWallpaperEnabled ? ["custom-wallpaper"] : [];
 
     this.store.dispatch(
       ac.BroadcastToContent({
