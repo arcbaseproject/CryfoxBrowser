@@ -462,8 +462,13 @@ Preferences.addSetting({
 });
 
 // Firefox support settings
+const CRYFOX_REPO_URL = "https://github.com/arcbaseproject/CryfoxBrowser";
+
 Preferences.addSetting({
   id: "supportLinksGroup",
+});
+Preferences.addSetting({
+  id: "supportGitHub",
 });
 Preferences.addSetting({
   id: "supportGetHelp",
@@ -571,17 +576,28 @@ SettingGroupManager.registerGroups({
         control: "moz-box-group",
         items: [
           {
+            id: "supportGitHub",
+            l10nId: "support-github",
+            control: "moz-box-link",
+            iconSrc: "chrome://browser/skin/github.svg",
+            controlAttrs: {
+              href: CRYFOX_REPO_URL,
+            },
+          },
+          {
             id: "supportGetHelp",
             l10nId: "support-get-help",
             control: "moz-box-link",
-            supportPage: "preferences",
+            controlAttrs: {
+              href: `${CRYFOX_REPO_URL}/issues`,
+            },
           },
           {
             id: "supportShareIdeas",
             l10nId: "support-share-ideas",
             control: "moz-box-link",
             controlAttrs: {
-              href: "https://connect.mozilla.org/",
+              href: `${CRYFOX_REPO_URL}/issues/new`,
             },
           },
         ],

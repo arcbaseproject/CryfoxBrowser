@@ -242,7 +242,7 @@ var gCurrentHistoryEntryId = null;
 const CONFIG_PANES = Object.freeze({
   about: {
     l10nId: "about-firefox-header",
-    iconSrc: "chrome://browser/skin/sidebar/firefox.svg",
+    iconSrc: "chrome://branding/content/about-logo.svg",
     groupIds: ["updates", "support"],
     module: "chrome://browser/content/preferences/config/about-firefox.mjs",
     visible: () => srdSectionPrefs.all,
@@ -618,7 +618,7 @@ function init_all() {
     ) {
       SettingPaneManager.registerPane("browserIcon", {
         parent: "appearance",
-        iconSrc: "chrome://browser/skin/sidebar/firefox.svg",
+        iconSrc: "chrome://branding/content/about-logo.svg",
         l10nId: "appearance-browser-icon-subpage-title",
         groupIds: ["browserIconBasic", "browserIconBonus"],
         module: "chrome://browser/content/preferences/config/browser-icon.mjs",

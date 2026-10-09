@@ -30,3 +30,63 @@ pref("app.update.badgeWaitTime", 0);
 // Number of usages of the web console.
 // If this is less than 5, then pasting code into the web console is disabled
 pref("devtools.selfxss.count", 5);
+
+// CryFox: no telemetry, studies, sponsored content or phoning home.
+pref("datareporting.policy.dataSubmissionEnabled", false);
+pref("datareporting.healthreport.uploadEnabled", false);
+pref("datareporting.usage.uploadEnabled", false);
+pref("toolkit.telemetry.enabled", false);
+pref("toolkit.telemetry.unified", false);
+pref("toolkit.telemetry.archive.enabled", false);
+pref("toolkit.telemetry.server", "");
+pref("toolkit.telemetry.newProfilePing.enabled", false);
+pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+pref("toolkit.telemetry.updatePing.enabled", false);
+pref("toolkit.telemetry.bhrPing.enabled", false);
+pref("toolkit.telemetry.coverage.opt-out", true);
+pref("toolkit.coverage.opt-out", true);
+pref("toolkit.coverage.endpoint.base", "");
+pref("dom.private-attribution.submission.enabled", false);
+pref("browser.search.serpEventTelemetryCategorization.enabled", false);
+
+pref("app.shield.optoutstudies.enabled", false);
+pref("app.normandy.enabled", false);
+pref("app.normandy.api_url", "");
+pref("nimbus.rollouts.enabled", false);
+pref("messaging-system.rsexperimentloader.enabled", false);
+pref("messaging-system.askForFeedback", false);
+
+pref("browser.newtabpage.activity-stream.telemetry", false);
+pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+pref("browser.newtabpage.activity-stream.telemetry.privatePing.enabled", false);
+pref("browser.newtabpage.activity-stream.showSponsored", false);
+pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
+pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+pref("browser.newtabpage.activity-stream.feeds.system.topstories", false);
+pref("browser.newtabpage.activity-stream.showWeather", false);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+pref("browser.urlbar.quicksuggest.online.enabled", false);
+pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+pref("browser.discovery.enabled", false);
+pref("extensions.htmlaboutaddons.recommendations.enabled", false);
+pref("extensions.getAddons.cache.enabled", false);
+
+pref("browser.tabs.crashReporting.sendReport", false);
+pref("breakpad.reportURL", "");
+
+pref("network.captive-portal-service.enabled", false);
+pref("network.connectivity-service.enabled", false);
+pref("captivedetect.canonicalURL", "");
+
+pref("browser.safebrowsing.malware.enabled", false);
+pref("browser.safebrowsing.phishing.enabled", false);
+pref("browser.safebrowsing.downloads.enabled", false);
+pref("browser.safebrowsing.downloads.remote.enabled", false);
+pref("browser.safebrowsing.blockedURIs.enabled", false);
+
+// CryFox shows its own onboarding instead of about:welcome.
+pref("browser.aboutwelcome.enabled", false);

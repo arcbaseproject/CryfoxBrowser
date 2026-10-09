@@ -821,6 +821,10 @@ support-application-heading =
     .label = { -brand-short-name } support
     .description = Troubleshoot issues or share ideas with the community.
 
+support-github =
+    .label = View source on GitHub
+    .description = Report bugs, follow development, or contribute.
+
 support-get-help =
     .label = Get help
 

@@ -676,6 +676,39 @@ Preferences.addSetting(
   })
 );
 
+// shortcut: English only, move to Fluent if CryFox gets localized.
+const ENGINE_PRIVACY_NOTES = {
+  brave:
+    "Privacy: good. Own index, no profile on you. The lion only roars at trackers.",
+  bing: "Privacy: poor. Microsoft logs your searches. Clippy is watching.",
+  duckduckgo:
+    "Privacy: good. Keeps no search history. The duck knows nothing and likes it.",
+  google:
+    "Privacy: poor. Knows what you searched, where you were, and what you'll search next.",
+  perplexity:
+    "Privacy: meh. An AI keeps your questions. It may also be confidently wrong.",
+  wikipedia:
+    "Privacy: good. No ads, no tracking. Just a polite request for $3.",
+  ecosia: "Privacy: okay. Plants trees, but still shares some data with Bing.",
+  startpage: "Privacy: good. Google results without Google knowing it was you.",
+  qwant: "Privacy: good. French, no tracking, very little drama.",
+  amazon: "Privacy: poor. Your search becomes tomorrow's ad.",
+  ebay: "Privacy: poor. Remembers that 3 AM bid you'd rather forget.",
+  yahoo: "Privacy: poor. Still tracking you, and still somehow alive.",
+};
+
+/**
+ * @param {SearchEngine} engine
+ * @returns {string|undefined}
+ */
+function getEnginePrivacyNote(engine) {
+  let engineName = engine.name.toLowerCase();
+  let key = Object.keys(ENGINE_PRIVACY_NOTES).find(k =>
+    engineName.startsWith(k)
+  );
+  return key && ENGINE_PRIVACY_NOTES[key];
+}
+
 /**
  * Creates an AsyncSetting to handle an individual item in the search engine
  * list.
@@ -718,7 +751,9 @@ function EngineListItemSetting(settingId, engine) {
         controlAttrs: {
           class: engine.hidden ? "description-deemphasized" : "",
           label: engine.name,
-          description: engine.aliases.join(", "),
+          description: [engine.aliases.join(", "), getEnginePrivacyNote(engine)]
+            .filter(Boolean)
+            .join(" · "),
           layout: "medium-icon",
         },
       };
