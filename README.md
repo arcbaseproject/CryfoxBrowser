@@ -1,18 +1,40 @@
-![Firefox Browser](./docs/readme/readme-banner.svg)
+# CryFox
 
-[Firefox](https://firefox.com/) is a fast, reliable and private web browser from the non-profit [Mozilla organization](https://mozilla.org/).
+CryFox is a privacy-focused web browser based on Mozilla Firefox. It ships with
+telemetry, AI features, sponsored content and onboarding turned off, and with
+strict privacy settings turned on.
 
-### Contributing
+CryFox is not affiliated with or endorsed by Mozilla.
 
-To learn how to contribute to Firefox read the [Firefox Contributors' Quick Reference document](https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html).
+### What is different from Firefox
 
-We use [bugzilla.mozilla.org](https://bugzilla.mozilla.org/) as our issue tracker, please file bugs there.
+* Telemetry, studies, crash reporting and the updater are disabled.
+* The new tab page has no stories, sponsored content or default shortcuts.
+* AI features are blocked, and the AI Controls settings page is removed.
+* Onboarding, "What's New" pages and feature recommendations are disabled.
+* Strict tracking protection, HTTPS-Only mode, DNS over HTTPS and Global
+  Privacy Control are enabled.
+* Brave Search is the default search engine.
+* uBlock Origin is installed on first launch.
 
-### Resources
+Most of these settings are in `browser/app/distribution/policies.json`.
+Branding is in `browser/branding/cryfox`.
 
-* [Firefox Source Docs](https://firefox-source-docs.mozilla.org/) is our primary documentation repository
-* Nightly development builds can be downloaded from [Firefox Nightly page](https://www.mozilla.org/firefox/channel/desktop/#nightly)
+### Building
 
-If you have a question about developing Firefox, and can't find the solution
-on [Firefox Source Docs](https://firefox-source-docs.mozilla.org/), you can try asking your question on Matrix at
-chat.mozilla.org in the [Introduction channel](https://chat.mozilla.org/#/room/#introduction:mozilla.org).
+The build options are in `mozconfig`. To build and run CryFox:
+
+```
+./mach bootstrap
+./mach build
+./mach run
+```
+
+For more about the build system, see the
+[Firefox Source Docs](https://firefox-source-docs.mozilla.org/).
+
+### License
+
+CryFox is distributed under the terms of the
+[Mozilla Public License 2.0](https://www.mozilla.org/MPL/2.0/), the same as
+Firefox. See `LICENSE` for details.
