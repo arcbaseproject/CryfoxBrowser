@@ -1508,7 +1508,7 @@ pref("browser.preferences.experimental.hidden", false);
 // Whether we show the "More from Mozilla" section.
 pref("browser.preferences.moreFromMozilla", true);
 // Whether we show the "AI Controls" pane.
-pref("browser.preferences.aiControls", true);
+pref("browser.preferences.aiControls", false);
 // Whether to show unavailable AI controls regardless of region/locale
 // restrictions. This is intended for localizers to be able to see the strings.
 pref("browser.preferences.aiControls.showUnavailable", false);
@@ -2459,7 +2459,7 @@ pref("browser.uiCustomization.state", "");
 
 // If set to false, FxAccounts and Sync will be unavailable.
 // A restart is mandatory after flipping that preference.
-pref("identity.fxaccounts.enabled", true);
+pref("identity.fxaccounts.enabled", false);
 
 // The remote FxA root content URL. Must use HTTPS.
 pref("identity.fxaccounts.remote.root", "https://accounts.firefox.com/");

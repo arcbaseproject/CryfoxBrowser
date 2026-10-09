@@ -33,11 +33,6 @@ pref("devtools.selfxss.count", 5);
 
 // CryFox: no telemetry, studies, sponsored content or phoning home.
 pref("datareporting.policy.dataSubmissionEnabled", false);
-pref("datareporting.healthreport.uploadEnabled", false);
-pref("datareporting.usage.uploadEnabled", false);
-pref("toolkit.telemetry.enabled", false);
-pref("toolkit.telemetry.unified", false);
-pref("toolkit.telemetry.archive.enabled", false);
 pref("toolkit.telemetry.server", "");
 pref("toolkit.telemetry.newProfilePing.enabled", false);
 pref("toolkit.telemetry.shutdownPingSender.enabled", false);
@@ -50,8 +45,6 @@ pref("toolkit.coverage.endpoint.base", "");
 pref("dom.private-attribution.submission.enabled", false);
 pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 
-pref("app.shield.optoutstudies.enabled", false);
-pref("app.normandy.enabled", false);
 pref("app.normandy.api_url", "");
 pref("nimbus.rollouts.enabled", false);
 pref("messaging-system.rsexperimentloader.enabled", false);
@@ -90,3 +83,17 @@ pref("browser.safebrowsing.blockedURIs.enabled", false);
 
 // CryFox shows its own onboarding instead of about:welcome.
 pref("browser.aboutwelcome.enabled", false);
+
+// Firefox's Preferences policy refuses these, so they are set here.
+pref("toolkit.telemetry.unified", false, locked);
+pref("toolkit.telemetry.enabled", false, locked);
+pref("toolkit.telemetry.archive.enabled", false, locked);
+pref("datareporting.healthreport.uploadEnabled", false, locked);
+pref("datareporting.usage.uploadEnabled", false, locked);
+pref("app.normandy.enabled", false, locked);
+pref("app.shield.optoutstudies.enabled", false, locked);
+pref("identity.fxaccounts.enabled", false);
+pref("privacy.donottrackheader.enabled", true);
+pref("privacy.query_stripping.enabled", true);
+pref("privacy.query_stripping.enabled.pbmode", true);
+pref("termsofuse.bypassNotification", true, locked);
