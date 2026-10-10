@@ -2856,6 +2856,10 @@ cryfox-sync =
     .label = Enable account sign-in and Sync
     .description = Sign in to sync your data with other devices. Requires restart.
 
+cryfox-classic-ui =
+    .label = Use the classic interface
+    .description = Switch the toolbars, new tab page, address bar, sidebar and settings back to their look from before the redesign. Requires restart.
+
 cryfox-middle-click-paste =
     .label = Enable middle click paste
     .description = Select some text to copy it, then paste it with a middle mouse click.

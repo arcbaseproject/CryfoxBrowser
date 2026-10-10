@@ -6,6 +6,7 @@ import { Preferences } from "chrome://global/content/preferences/Preferences.mjs
 import { SettingGroupManager } from "chrome://browser/content/preferences/config/SettingGroupManager.mjs";
 
 Preferences.addAll([
+  { id: "browser.nova.enabled", type: "bool" },
   { id: "cryfox.update.check", type: "bool" },
   { id: "extensions.update.enabled", type: "bool" },
   { id: "identity.fxaccounts.enabled", type: "bool" },
@@ -45,19 +46,46 @@ function restartBrowser() {
   }
 }
 
+async function promptRestart(enabled, deps, setting) {
+  let buttonIndex = await window.confirmRestartPrompt(enabled, 0, true, true);
+  if (buttonIndex == RESTART_NOW) {
+    Services.startup.quit(
+      Ci.nsIAppStartup.eAttemptQuit | Ci.nsIAppStartup.eRestart
+    );
+  } else if (buttonIndex == REVERT) {
+    setting.value = !enabled;
+  }
+}
+
 Preferences.addSetting({
   id: "cryfoxSync",
   pref: "identity.fxaccounts.enabled",
-  async onUserChange(enabled, deps, setting) {
-    let buttonIndex = await window.confirmRestartPrompt(enabled, 0, true, true);
-    if (buttonIndex == RESTART_NOW) {
-      Services.startup.quit(
-        Ci.nsIAppStartup.eAttemptQuit | Ci.nsIAppStartup.eRestart
-      );
-    } else if (buttonIndex == REVERT) {
-      setting.value = !enabled;
+  onUserChange: promptRestart,
+});
+// Redesigns that browser.nova.enabled does not cover, turned off together
+// with it for the classic interface.
+const CLASSIC_UI_PREFS = [
+  "browser.newtabpage.activity-stream.nova.enabled",
+  "browser.settings-redesign.enabled",
+  "browser.urlbar.scotchBonnet.enableOverride",
+  "sidebar.revamp",
+];
+
+Preferences.addSetting({
+  id: "cryfoxClassicUI",
+  pref: "browser.nova.enabled",
+  get: nova => !nova,
+  set: classic => {
+    for (let pref of CLASSIC_UI_PREFS) {
+      if (classic) {
+        Services.prefs.setBoolPref(pref, false);
+      } else {
+        Services.prefs.clearUserPref(pref);
+      }
     }
+    return !classic;
   },
+  onUserChange: promptRestart,
 });
 Preferences.addSetting({
   id: "cryfoxMiddleClickPaste",
@@ -116,6 +144,7 @@ SettingGroupManager.registerGroups({
       { id: "cryfoxUpdateCheck", l10nId: "cryfox-update-check" },
       { id: "cryfoxAddonUpdates", l10nId: "cryfox-addon-updates" },
       { id: "cryfoxSync", l10nId: "cryfox-sync" },
+      { id: "cryfoxClassicUI", l10nId: "cryfox-classic-ui" },
       { id: "cryfoxMiddleClickPaste", l10nId: "cryfox-middle-click-paste" },
       { id: "cryfoxUserChrome", l10nId: "cryfox-userchrome" },
     ],
