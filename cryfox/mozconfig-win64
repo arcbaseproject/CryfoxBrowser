@@ -1,0 +1,6 @@
+# Cross-compile CryFox for 64-bit Windows from Linux.
+# Usage: MOZCONFIG=cryfox/mozconfig-win64 ./mach build && MOZCONFIG=cryfox/mozconfig-win64 ./mach package
+ac_add_options --target=x86_64-pc-windows-msvc
+ac_add_options --enable-bootstrap
+ac_add_options --with-redist
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-win64

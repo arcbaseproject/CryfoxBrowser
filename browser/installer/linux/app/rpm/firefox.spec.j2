@@ -2,10 +2,10 @@ Name:           {{ PKG_NAME }}
 Version:        {{ PKG_VERSION }}
 Release:        {{ PKG_BUILD_NUMBER }}%{?dist}
 Summary:        {{ DESCRIPTION }}
-URL:            https://www.mozilla.org/firefox/
+URL:            https://github.com/arcbaseproject/CryfoxBrowser
 Group:          Applications/Internet
 License:        MPL-2
-Vendor:         Mozilla
+Vendor:         CryFox
 Source0:        %{name}.tar.xz
 Source1:        %{name}.desktop
 Source2:        %{name}.1
@@ -68,5 +68,5 @@ Supplements:   (%{name} = %{version}-%{release} and langpacks-{{ codename }})
 %{_datadir}/icons/hicolor/128x128/apps/%{name}.png
 
 %changelog
-* {{ CHANGELOG_DATE }} Mozilla <release@mozilla.com> {{ PKG_VERSION }}-{{ PKG_BUILD_NUMBER }}
+* {{ CHANGELOG_DATE }} CryFox <stormz5m@proton.me> {{ PKG_VERSION }}-{{ PKG_BUILD_NUMBER }}
   - N/A
