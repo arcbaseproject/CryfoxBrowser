@@ -1,0 +1,8 @@
+[DEFAULT]
+head = ""
+skip-if = ["os == 'android'"]
+prefs = [
+  "browser.ml.logLevel=Info",
+]
+
+["test_download_rs_attachment_failure.js"]
