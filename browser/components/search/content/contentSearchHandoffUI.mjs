@@ -84,14 +84,10 @@ class ContentSearchHandoffUIController {
       URL.revokeObjectURL(this._engineIcon);
     }
 
-    // We only show the engines icon for config engines, otherwise show
-    // a default. xref https://bugzilla.mozilla.org/show_bug.cgi?id=1449338#c19
-    if (!engine.isConfigEngine) {
-      this._engineIcon = "chrome://global/skin/icons/search-glass.svg";
-    } else if (engine.iconData) {
+    if (engine.iconData) {
       this._engineIcon = this._getFaviconURIFromIconData(engine.iconData);
     } else {
-      this._engineIcon = "chrome://global/skin/icons/defaultFavicon.svg";
+      this._engineIcon = "chrome://global/skin/icons/search-glass.svg";
     }
 
     document.body.style.setProperty(
