@@ -970,6 +970,7 @@ export class BaseContent extends React.PureComponent {
       showInferredPersonalizationEnabled:
         prefs[PREF_INFERRED_PERSONALIZATION_USER],
       topSitesRowsCount: prefs.topSitesRows,
+      logoEnabled: prefs["logowordmark.alwaysVisible"],
       webNotificationsEnabled: prefs.showWebNotifications,
       weatherEnabled: novaEnabled
         ? prefs["widgets.weather.enabled"]
@@ -1234,11 +1235,14 @@ export class BaseContent extends React.PureComponent {
               className={`container nova-enabled${logoShouldBeCentered ? " logo-in-content" : ""}${hasFiveColumnLayout ? " sections-5-col" : ""}`}
             >
               <aside className="sidebar-inline-start">
-                {!prefs.hideLogo && !logoShouldBeCentered && !isPageEmpty && (
-                  <ErrorBoundary>
-                    <Logo />
-                  </ErrorBoundary>
-                )}
+                {prefs["logowordmark.alwaysVisible"] &&
+                  !prefs.hideLogo &&
+                  !logoShouldBeCentered &&
+                  !isPageEmpty && (
+                    <ErrorBoundary>
+                      <Logo />
+                    </ErrorBoundary>
+                  )}
                 {/* Future: Page Nav  */}
               </aside>
               {/* Bug 2021460 - Placed before <main> in DOM order so small widgets
@@ -1259,11 +1263,14 @@ export class BaseContent extends React.PureComponent {
               landmark. See _Grid.scss. */}
               <main className="content-main">
                 <div className="content">
-                  {!prefs.hideLogo && logoShouldBeCentered && !isPageEmpty && (
-                    <ErrorBoundary>
-                      <Logo />
-                    </ErrorBoundary>
-                  )}
+                  {prefs["logowordmark.alwaysVisible"] &&
+                    !prefs.hideLogo &&
+                    logoShouldBeCentered &&
+                    !isPageEmpty && (
+                      <ErrorBoundary>
+                        <Logo />
+                      </ErrorBoundary>
+                    )}
 
                   {logoShouldBeCentered && searchArea}
 
@@ -1456,16 +1463,16 @@ export class BaseContent extends React.PureComponent {
                 <div className="non-collapsible-section">
                   <ErrorBoundary>
                     <Search
-                      showLogo={
-                        noSectionsEnabled || prefs["logowordmark.alwaysVisible"]
-                      }
+                      showLogo={prefs["logowordmark.alwaysVisible"]}
                       {...props.Search}
                     />
                   </ErrorBoundary>
                 </div>
               )}
               {/* Bug 1914055: Show logo regardless if search is enabled */}
-              {!prefs.showSearch && !noSectionsEnabled && <Logo />}
+              {!prefs.showSearch &&
+                !noSectionsEnabled &&
+                prefs["logowordmark.alwaysVisible"] && <Logo />}
               <div className={`body-wrapper${initialized ? " on" : ""}`}>
                 {shouldShowOMCHighlight(
                   this.props.Messages,

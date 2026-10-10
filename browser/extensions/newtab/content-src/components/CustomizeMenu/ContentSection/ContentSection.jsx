@@ -242,6 +242,7 @@ export class ContentSection extends React.PureComponent {
       showInferredPersonalizationEnabled,
       topSitesRowsCount,
       webNotificationsEnabled,
+      logoEnabled,
     } = enabledSections;
     const {
       timerEnabled,
@@ -463,6 +464,16 @@ export class ContentSection extends React.PureComponent {
             }
 
             <span className="divider" role="separator"></span>
+
+            <div id="logo-section" className="section">
+              <moz-toggle
+                id="logo-toggle"
+                pressed={logoEnabled || null}
+                ontoggle={this.onPreferenceSelect}
+                data-preference="logowordmark.alwaysVisible"
+                label="Logo"
+              ></moz-toggle>
+            </div>
 
             <div id="shortcuts-section" className="section">
               <moz-toggle
