@@ -2832,3 +2832,71 @@ referrals-section-header2 =
 # use the browser. "Share" here means recommending or referring the browser
 referrals-link2 =
   .label = Share { -brand-product-name }
+
+## CryFox settings pane
+
+pane-cryfox-title = { -brand-short-name }
+    .title = { pane-cryfox-title }
+
+cryfox-settings-header =
+    .heading = { -brand-short-name } Preferences
+
+cryfox-behavior-group =
+    .label = Browser behavior
+
+cryfox-addon-updates =
+    .label = Update add-ons automatically
+    .description = Keep extensions up to date without manual intervention. A good choice for your security.
+
+cryfox-sync =
+    .label = Enable account sign-in and Sync
+    .description = Sign in to sync your data with other devices. Requires restart.
+
+cryfox-middle-click-paste =
+    .label = Enable middle click paste
+    .description = Select some text to copy it, then paste it with a middle mouse click.
+
+cryfox-userchrome =
+    .label = Allow userChrome.css customization
+    .description = Turn this on to customize the interface with a manually loaded theme. Requires restart.
+
+cryfox-networking-group =
+    .label = Networking
+
+cryfox-ipv6 =
+    .label = Enable IPv6
+    .description = Allow { -brand-short-name } to connect using IPv6.
+
+cryfox-privacy-group =
+    .label = Privacy
+
+cryfox-limit-referrers =
+    .label = Limit cross-origin referrers
+    .description = Send a referrer only to the same site.
+
+cryfox-fingerprinting-group =
+    .label = Fingerprinting
+
+cryfox-resist-fingerprinting =
+    .label = Enable ResistFingerprinting
+    .description = Turns on all available fingerprinting protections. Some websites may not work properly.
+
+cryfox-letterboxing =
+    .label = Enable letterboxing
+    .description = Adds margins around web pages so the window reports one of a limited set of rounded sizes.
+
+cryfox-disable-webgl =
+    .label = Disable WebGL
+    .description = Blocks a common fingerprinting method. Some 3D content and maps will stop working.
+
+cryfox-links-group =
+    .label = Useful links
+
+cryfox-about-config =
+    .label = All advanced settings (about:config)
+
+cryfox-profile-folder =
+    .label = Open profile folder
+
+cryfox-restart =
+    .label = Restart { -brand-short-name }

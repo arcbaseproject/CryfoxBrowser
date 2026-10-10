@@ -290,6 +290,18 @@ const CONFIG_PANES = Object.freeze({
     visible: () =>
       Services.prefs.getBoolPref("browser.settings-redesign.enabled", false),
   },
+  cryfox: {
+    l10nId: "cryfox-settings-header",
+    iconSrc: "chrome://branding/content/about-logo.svg",
+    groupIds: [
+      "cryfoxBehavior",
+      "cryfoxNetworking",
+      "cryfoxPrivacy",
+      "cryfoxFingerprinting",
+      "cryfoxLinks",
+    ],
+    module: "chrome://browser/content/preferences/config/cryfox.mjs",
+  },
   connectionSecurity: {
     parent: "privacy",
     l10nId: "preferences-connection-header",
