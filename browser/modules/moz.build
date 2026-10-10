@@ -126,6 +126,7 @@ EXTRA_JS_MODULES += [
     "BrowserUsageTelemetry.sys.mjs",
     "BrowserWindowTracker.sys.mjs",
     "ContentCrashHandlers.sys.mjs",
+    "CryFoxUpdateChecker.sys.mjs",
     "Dedupe.sys.mjs",
     "EveryWindow.sys.mjs",
     "ExtensionsUI.sys.mjs",

@@ -2844,6 +2844,10 @@ cryfox-settings-header =
 cryfox-behavior-group =
     .label = Browser behavior
 
+cryfox-update-check =
+    .label = Check for { -brand-short-name } updates on startup
+    .description = Looks for a new release on GitHub each time { -brand-short-name } opens, and asks before downloading it.
+
 cryfox-addon-updates =
     .label = Update add-ons automatically
     .description = Keep extensions up to date without manual intervention. A good choice for your security.

@@ -97,3 +97,8 @@ pref("privacy.donottrackheader.enabled", true);
 pref("privacy.query_stripping.enabled", true);
 pref("privacy.query_stripping.enabled.pbmode", true);
 pref("termsofuse.bypassNotification", true, locked);
+
+// CryFox's own version, compared with GitHub release tags (v<version>) by
+// CryFoxUpdateChecker. Bump it for every release.
+pref("cryfox.version", "157.0.1");
+pref("cryfox.update.check", true);

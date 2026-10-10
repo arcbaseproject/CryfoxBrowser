@@ -6,6 +6,7 @@ import { Preferences } from "chrome://global/content/preferences/Preferences.mjs
 import { SettingGroupManager } from "chrome://browser/content/preferences/config/SettingGroupManager.mjs";
 
 Preferences.addAll([
+  { id: "cryfox.update.check", type: "bool" },
   { id: "extensions.update.enabled", type: "bool" },
   { id: "identity.fxaccounts.enabled", type: "bool" },
   { id: "middlemouse.paste", type: "bool" },
@@ -16,6 +17,10 @@ Preferences.addAll([
   { id: "webgl.disabled", type: "bool" },
 ]);
 
+Preferences.addSetting({
+  id: "cryfoxUpdateCheck",
+  pref: "cryfox.update.check",
+});
 Preferences.addSetting({
   id: "cryfoxAddonUpdates",
   pref: "extensions.update.enabled",
@@ -108,6 +113,7 @@ SettingGroupManager.registerGroups({
     l10nId: "cryfox-behavior-group",
     headingLevel: 2,
     items: [
+      { id: "cryfoxUpdateCheck", l10nId: "cryfox-update-check" },
       { id: "cryfoxAddonUpdates", l10nId: "cryfox-addon-updates" },
       { id: "cryfoxSync", l10nId: "cryfox-sync" },
       { id: "cryfoxMiddleClickPaste", l10nId: "cryfox-middle-click-paste" },
