@@ -9,6 +9,7 @@ imply_option("MOZ_BLOCK_PROFILE_DOWNGRADE", True)
 imply_option("MOZ_NORMANDY", True)
 imply_option("--enable-crashreporter", False)
 imply_option("--enable-updater", False)
+imply_option("MOZ_APP_NAME", "cryfox")
 imply_option("MOZ_APP_REMOTINGNAME", "cryfox")
 imply_option("MOZ_PROFILE_MIGRATOR", True)
 

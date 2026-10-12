@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>cryfox.desktop</id>
+  <launchable type="desktop-id">cryfox.desktop</launchable>
+  <name>CryFox</name>
+  <summary>Private web browser based on Firefox</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MPL-2.0</project_license>
+  <developer id="io.github.arcbaseproject">
+    <name>CryFox</name>
+  </developer>
+  <description>
+    <p>CryFox is a web browser built on Firefox, with telemetry, studies and sponsored content removed.</p>
+  </description>
+  <icon type="stock">cryfox</icon>
+  <url type="homepage">https://github.com/arcbaseproject/CryfoxBrowser</url>
+  <url type="bugtracker">https://github.com/arcbaseproject/CryfoxBrowser/issues</url>
+  <categories>
+    <category>Network</category>
+    <category>WebBrowser</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="${PKG_VERSION}" date="${TIMESTAMP}">
+      <url type="details">https://github.com/arcbaseproject/CryfoxBrowser/releases/tag/v${PKG_VERSION}</url>
+    </release>
+  </releases>
+</component>

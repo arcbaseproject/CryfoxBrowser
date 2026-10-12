@@ -82,6 +82,9 @@ def repackage_rpm(
             product=product,
             build_number=rpm_build_number,
         )
+        build_variables["CHANGELOG_DATE"] = build_variables["TIMESTAMP"].strftime(
+            "%a %b %d %Y"
+        )
 
         rpm_dir = mozpath.join(source_dir, "rpm")
         build_variables["LANGUAGES"] = prepare_langpack_files(rpm_dir, xpi_directory)
@@ -94,7 +97,7 @@ def repackage_rpm(
             exclude_file_names=["package-prefs.js"],
         )
 
-        app_name = application_ini_data["name"]
+        app_name = application_ini_data["remoting_name"]
         with open(
             mozpath.join(source_dir, app_name.lower(), "is-packaged-app"), "w"
         ) as f:

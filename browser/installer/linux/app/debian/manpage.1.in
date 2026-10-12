@@ -92,7 +92,7 @@ Load the specified chrome.
 
 \fI/usr/lib/${PKG_NAME}/${PKG_NAME}\fR - ${DISPLAY_NAME} executable.
 
-\fI/usr/lib/${PKG_NAME}/firefox\-bin\fR - Legacy executable.
+\fI/usr/lib/${PKG_NAME}/${PKG_NAME}\-bin\fR - Legacy executable.
 .br
 
 .SH BUGS

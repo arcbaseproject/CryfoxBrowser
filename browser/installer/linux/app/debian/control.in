@@ -8,4 +8,6 @@ Package: ${PKG_NAME}
 Architecture: ${ARCH_NAME}
 Depends: ${DEPENDS}
 Provides: gnome-www-browser, www-browser
-Description: ${DESCRIPTION}
+Description: Private web browser based on Firefox
+ CryFox is a web browser built on Firefox, with telemetry, studies and
+ sponsored content removed.

@@ -6,7 +6,7 @@ ${PKG_NAME} - ${DISPLAY_NAME} offers safe and easy web browsing
 .B ${PKG_NAME}
 [\fIOPTIONS\fR] [\fIURL\fR]
 
-.B /usr/lib/${PKG_NAME}/firefox
+.B /usr/lib/${PKG_NAME}/${PKG_NAME}
 [\fIOPTIONS\fR] [\fIURL\fR]
 
 .SH DESCRIPTION
@@ -87,12 +87,12 @@ Load the specified chrome.
 (the ones that appear at the about:plugins url)
 
 .SH FILES
-\fI/usr/bin/${PKG_NAME}\fR - symbolic link to \fB/usr/lib/${PKG_NAME}/firefox\fR.
+\fI/usr/bin/${PKG_NAME}\fR - symbolic link to \fB/usr/lib/${PKG_NAME}/${PKG_NAME}\fR.
 .br
 
-\fI/usr/lib/${PKG_NAME}/firefox\fR - ${DISPLAY_NAME} executable.
+\fI/usr/lib/${PKG_NAME}/${PKG_NAME}\fR - ${DISPLAY_NAME} executable.
 
-\fI/usr/lib/${PKG_NAME}/firefox\-bin\fR - Legacy executable.
+\fI/usr/lib/${PKG_NAME}/${PKG_NAME}\-bin\fR - Legacy executable.
 .br
 
 .SH BUGS
