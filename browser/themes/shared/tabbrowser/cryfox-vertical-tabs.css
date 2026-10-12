@@ -1,0 +1,36 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* CryFox: Zen-style vertical tabs. Kept out of tabs.css so Firefox rebases
+ * don't conflict. */
+
+@media -moz-pref("sidebar.verticalTabs") {
+  #tabbrowser-tabs[orient="vertical"] {
+    @media (prefers-reduced-motion: no-preference) {
+      .tab-background {
+        transition:
+          background-color 150ms var(--animation-easing-function),
+          box-shadow 150ms var(--animation-easing-function);
+      }
+    }
+
+    @media not ((prefers-contrast) or (forced-colors)) {
+      /* Replace the nova gradient border with a raised card. */
+      .tab-background[selected]:not([multiselected]) {
+        background: var(--tab-background-color-selected);
+        outline: 1px solid color-mix(in srgb, currentColor 8%, transparent);
+        outline-offset: 0;
+        box-shadow: var(--box-shadow-level-1);
+      }
+
+      .tabbrowser-tab:not([selected], [multiselected], :hover) .tab-label-container {
+        color: var(--text-color-deemphasized);
+      }
+    }
+
+    .tabbrowser-tab:not(:hover) .tab-close-button {
+      display: none;
+    }
+  }
+}
